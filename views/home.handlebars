@@ -1,17 +1,82 @@
-
-
-<h1>Exercise List</h1>
-    <ul>
-        {{#each exercises}}
-            <li>
-                <strong>{{title}}</strong>
-                <p>Date: {{date}}</p>
-                <p>Sets: {{sets}}</p>
-                <p>Reps: {{reps}}</p>
-                <p>Weight: {{weight}}</p>
-                <p>RPE: {{rpe}}</p>
-                <p>Bodyweight: {{bodyweight}}</p>
-                <p>User: {{user.name}}</p>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><h1>EXERCISE<span class="material-symbols-outlined" style="font-size: 25px;">
+        fitness_center
+        </span><span class="tracker">TRACKER</span></h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home">Home</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/newworkout">New Workout</a>
+            </li>
+            <button type="button" class="btn btn-outline-light">Logout</button>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<h1 class="wkLog">Workout Log</h1>
+<div class="container mt-5">
+    <div class="row">
+        {{#each exercises}}
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-white workout-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text">Date: {{date}}</p>
+                    <p class="card-text">Sets: {{sets}}</p>
+                    <p class="card-text">Reps: {{reps}}</p>
+                    <p class="card-text">Weight: {{weight}}</p>
+                    <p class="card-text">RPE: {{rpe}}</p>
+                    <p class="card-text">Bodyweight: {{bodyweight}}</p>
+                    <p class="card-text">Comments: {{comments}}</p>
+                    <p class="card-text">User: {{user.name}}</p>
+                    <button class="btn btn-primary btn-sm update-workout" data-workout-id="{{id}}">Update</button>
+                    <button class="btn btn-danger btn-sm delete-workout" data-workout-id="{{id}}">Delete</button>
+                </div>
+            </div>
+        </div>
         {{/each}}
-    </ul>
+    </div>
+</div>
+
+    <style>
+      h1{
+  font-family: 'Bebas Neue', sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 5px 0px;
+}
+.tracker{
+  color: #28a745; /*color of the word 'tracker' in logo*/
+}
+
+ .workout-card {
+    border-radius: 10px; /* Adjust this value for your desired rounded edge */
+    transition: transform 0.3s ease; /* Adjust the transition duration as needed */
+  }
+
+  .workout-card:hover {
+    transform: scale(1.03); /* Adjust the scale factor to control the hover animation */
+  }
+
+  .wkLog{
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
+    font-size: 3em;
+    margin: 25px 0px;
+  }
+
+    </style>
+
+ 
+  <script src="\js\home.js"></script>
+

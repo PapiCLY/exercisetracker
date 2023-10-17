@@ -21,7 +21,7 @@ Exercise.init({
         allowNull: true,
     },
     date: {// date
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     sets: {// sets
@@ -38,15 +38,15 @@ Exercise.init({
     },
     rpe: {// rpe
         type: DataTypes.INTEGER,
-        allowNull: true,
+        //allownull true is default
     },
     bodyweight: {// body weight
         type: DataTypes.INTEGER,
-        allowNull: true,
+        //allownull true is default
     },
     comments: {// comments - ex "felt tired"
         type: DataTypes.STRING,
-        allowNull: true,
+        //allownull true is default
     },
     user_id: {// user id foreign key to build association with the user that created the exercise or is logged in 
         type: DataTypes.INTEGER,
@@ -58,7 +58,6 @@ Exercise.init({
     },
     {//In this second object literal youre going to define any configuration for the table and make a connection to the database
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'exercise',
